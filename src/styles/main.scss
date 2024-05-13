@@ -1,7 +1,11 @@
 @use 'variables';
+@use 'header';
 @use 'hero';
 @use 'shows';
 @use 'plans';
+@use 'avaliable-devices';
+@use 'faq';
+@use 'footer';
 
 @font-face {
     font-family: Avenir;
@@ -20,6 +24,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Avenir, sans-serif;
+    list-style-type: none;
 }
 
 
@@ -69,15 +74,82 @@ body {
 }
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variables.$corTextoSecundario;
-    background-color: #6421ff;
+    background-color: variables.$corDeFundoBotaoPrimario;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
+    text-decoration: none;
+    padding: 8px 14px;
+    letter-spacing: 1px;
+    border: 1px solid variables.$corDeFundoBotaoPrimario;
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten(variables.$corDeFundoBotaoPrimario, 3%);
+    }
+
+    &--secondary {
+        background-color: variables.$corDeFundoBotaoSecundario;
+        border-color: variables.$corDeFundoBotaoSecundario;
+
+        &:hover {
+            background-color: lighten(variables.$corDeFundoBotaoSecundario, 3%);
+        }
+    }
+
+    &--dark {
+        background-color: variables.$corDeFundoBotaoDark;
+        border-color: variables.$corTextoSecundario;
+
+        &:hover {
+            background-color: variables.$corTextoSecundario;
+            color: variables.$corDeFundoBotaoDark;
+        }
+    }
+}
+
+.image-text-section {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    img {
+        max-width: 100%;
+    }
+
+    &__text__container {
+        padding: 2vw;
+
+        h2 {
+            margin-bottom: 24px;
+        }
+    }
+
+    &--image--full--width {
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        &__text__container {
+            position: absolute;
+            top: 0vw;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
 }
